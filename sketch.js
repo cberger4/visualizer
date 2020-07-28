@@ -1,5 +1,5 @@
 let song;
-let toggle, nosleep;
+let toggle, tropical, upbeat;
 let bands16, bands64, bands256, bands1024;
 let fft;
 let numBands = 64; //must be power of 2 >= 16
@@ -10,8 +10,8 @@ let buffer = 50; //space from top of canvas
 let loadSong = 1;
 
 function preload() {
-  song1 = loadSound('sounds/this-groove.mp3');
-  song2 = loadSound('sounds/no-sleep.mp3');
+  song1 = loadSound('sounds/upbeat.mp3');
+  song2 = loadSound('sounds/tropical.mp3');
 
   song = song1;
 
@@ -24,13 +24,13 @@ function setup() {
   toggle.position(50, height - 90);
   toggle.mousePressed(toggleSong);
 
-  nosleep = createButton('Load No Sleep');
-  nosleep.position(40, height - 60);
-  nosleep.mousePressed(playNoSleep);
+  tropical = createButton('Load Tropical');
+  tropical.position(40, height - 60);
+  tropical.mousePressed(playTropical);
 
-  thisgroove = createButton('Load This Groove');
-  thisgroove.position(30, height - 30);
-  thisgroove.mousePressed(playThisGroove);
+  upbeat = createButton('Load Upbeat');
+  upbeat.position(40, height - 30);
+  upbeat.mousePressed(playUpbeat);
 
   bands16 = createButton('16 Bands');
   bands16.position(200, height - 75);
@@ -73,14 +73,14 @@ function toggleSong() {
   } else song.play();
 }
 
-function playNoSleep() {
+function playTropical() {
   if (song.isPlaying()) {
     song.stop();
   }
   song = song2;
 }
 
-function playThisGroove() {
+function playUpbeat() {
   if (song.isPlaying()) {
     song.stop();
   }
